@@ -34,7 +34,7 @@ export default function BlogOverview({ blogList }) {
   const handleSaveBlogData = async () => {
     setLoading(true);
     try {
-      const apiResponse = await fetch("/api/add-blog", {
+      const apiResponse = await fetch("api/add-blog", {
         method: "POST",
         body: JSON.stringify(blogFormData),
       });
@@ -55,7 +55,7 @@ export default function BlogOverview({ blogList }) {
   const handleDelete = async (id) => {
     setLoading(true);
     try {
-      const apiResponse = await fetch(`/api/delete-blog?id=${id}`, {
+      const apiResponse = await fetch(`api/delete-blog?id=${id}`, {
         method: "DELETE",
       });
       const result = await apiResponse.json();
@@ -72,7 +72,7 @@ export default function BlogOverview({ blogList }) {
   const handleUpdateBlogData = async (id) => {
     setLoading(true);
     try {
-      const apiResponse = await fetch(`/api/update-blog?id=${id}`, {
+      const apiResponse = await fetch(`api/update-blog?id=${id}`, {
         method: "PUT",
         body: JSON.stringify(blogFormData),
       });

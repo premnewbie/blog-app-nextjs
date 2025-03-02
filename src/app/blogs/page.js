@@ -3,7 +3,7 @@ import { BASE_API_URL } from "../utils/constants";
 
 async function fetchListOfBlogs(){
     try {
-        const apiResponse = await fetch(`${BASE_API_URL}/api/get-blogs`,{
+        const apiResponse = await fetch(`${BASE_API_URL}api/get-blogs`,{
             method: 'GET',
             cache: 'no-store'
         })
