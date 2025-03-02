@@ -14,7 +14,7 @@ async function fetchListOfBlogs() {
     }
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
     if (!BASE_API_URL) {
         return { props: { blogList: [] } };  // Fallback if the API URL is missing
     }
@@ -23,7 +23,8 @@ export async function getServerSideProps() {
     return {
         props: {
             blogList
-        }
+        },
+        revalidate: 60  // Re-fetch the data every 60 seconds in the background
     };
 }
 
