@@ -9,6 +9,7 @@ async function fetchListOfBlogs(){
         })
 
         const result = await apiResponse.json();
+        console.log("Get Blogs:",result?.data)
     
         return result?.data
     } catch (error) {
