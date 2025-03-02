@@ -18,6 +18,10 @@ async function fetchListOfBlogs(){
 
 export default async function Blogs(){
 
+    if(!BASE_API_URL){
+        return null;
+    }
+
     const blogList = await fetchListOfBlogs();
 
     return (
