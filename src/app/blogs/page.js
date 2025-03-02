@@ -16,29 +16,11 @@ async function fetchListOfBlogs() {
     }
 }
 
-export async function getServerSideProps() {
-    if (!BASE_API_URL) {
-        return { props: { blogList: [] } };
-    }
+export default async function Blogs(){
 
-    try {
-        const blogList = await fetchListOfBlogs();
+    const blogList = await fetchListOfBlogs();
 
-        return {
-            props: {
-                blogList: blogList || [],
-            },
-        };
-    } catch (error) {
-        console.error("Error fetching blog list:", error);
-        return { props: { blogList: [] } }; // return empty list on error
-    }
-}
-
-export default function Blogs({ blogList }) {
-    if (!blogList || blogList.length === 0) {
-        return <p>No blogs available.</p>;
-    }
-
-    return <BlogOverview blogList={blogList} />;
+    return (
+        <BlogOverview blogList={blogList} />
+    )
 }
