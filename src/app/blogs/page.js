@@ -19,9 +19,12 @@ async function fetchListOfBlogs(){
 
 export default async function Blogs(){
 
+    console.log("API URL:",`${BASE_API_URL}api/get-blogs`)
+
     if(!BASE_API_URL){
         return null;
     }
+
 
     const blogList = await fetchListOfBlogs();
 
